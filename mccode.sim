@@ -1,0 +1,282 @@
+McStas simulation description file for SNAP.
+Date:    Mon Oct  8 16:10:48 2018
+Program: McStas 2.4.1 - Jun. 26, 2017
+
+begin instrument: SNAP
+  File: (null)/mccode
+  Source: SNAP_2018.instr
+  Parameters: 
+  Trace_enabled: yes
+  Default_main: yes
+  Embedded_runtime: yes
+end instrument
+
+begin simulation: (null)
+  Format: McCode with text headers
+  URL: http://www.mccode.org
+  Creator: McStas 2.4.1 - Jun. 26, 2017
+  Instrument: SNAP_2018.instr
+  Ncount: 1000000
+  Trace: no
+  Gravitation: no
+  Seed: 1539045922
+  Directory: .
+end simulation
+
+begin data
+  Date: Mon Oct  8 16:11:00 2018 (1539029460)
+  type: array_2d(11, 103154)
+  Source: SNAP (SNAP_2018.instr)
+  component: saveNeutrons
+  position: 0 0 14.7
+  title:  Intensity Position Position Position Velocity Velocity Velocity Time_Of_Flight Spin Spin Spin Monitor (Square)
+  Ncount: 1000000
+  filename: neutrons_before_sample.dat
+  statistics: X0=0; dX=0; Y0=0; dY=0;
+  signal: Min=45.0207; Max=45.0207; Mean=0;
+  values: 0 0 0
+  xvar: Li
+  yvar: p 
+  xlabel: List of neutron events
+  ylabel: p x y z vx vy vz t sx sy sz 
+  zvar: I
+  zlabel: Signal per bin
+  xylimits: 1 103154 1 11
+  variables: p x y z vx vy vz t sx sy sz 
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:00 2018 (1539029460)
+  type: array_2d(500, 500)
+  Source: SNAP (SNAP_2018.instr)
+  component: imagePlate
+  position: 0 0 15
+  title: PSD monitor
+  Ncount: 1000000
+  filename: ImagePlate.psd
+  statistics: X0=0.000396834; dX=0.268237; Y0=0.000502226; dY=0.318148;
+  signal: Min=0; Max=1115.23; Mean=14.2641;
+  values: 3.56601e+06 11798.5 103154
+  xvar: X 
+  yvar: Y 
+  xlabel: X position [cm]
+  ylabel: Y position [cm]
+  zvar: I
+  zlabel: Signal per bin
+  xylimits: -2.5 2.5 -2.5 2.5
+  variables: I I_err N
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:00 2018 (1539029460)
+  type: array_1d(1000)
+  Source: SNAP (SNAP_2018.instr)
+  component: sampleSpectrumL
+  position: 0 0 15
+  title: Wavelength monitor
+  Ncount: 1000000
+  filename: sampleSpectrum.L
+  statistics: X0=1.68607; dX=0.913893;
+  signal: Min=0; Max=527.687; Mean=57.1995;
+  values: 57199.5 1472.52 1734
+  xvar: L
+  yvar: (I,I_err)
+  xlabel: Wavelength [AA]
+  ylabel: Intensity
+  xlimits: 0 10
+  variables: L I I_err N
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:00 2018 (1539029460)
+  type: array_1d(10000)
+  Source: SNAP (SNAP_2018.instr)
+  component: sampleSpectrumTOF
+  position: 0 0 15
+  title: Time-of-flight monitor
+  Ncount: 1000000
+  filename: sampleSpectrum.TOF
+  statistics: X0=6414.47; dX=3475.29;
+  signal: Min=0; Max=244.862; Mean=5.7159;
+  values: 57159 1471.97 1733
+  xvar: t
+  yvar: (I,I_err)
+  xlabel: Time-of-flight [\gms]
+  ylabel: Intensity
+  xlimits: 0 100000
+  variables: t I I_err N
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:00 2018 (1539029460)
+  type: array_2d(1000, 1000)
+  Source: SNAP (SNAP_2018.instr)
+  component: divergenceMonitor_xy
+  position: 0 0 15
+  title: Divergence monitor
+  Ncount: 1000000
+  filename: Divergence.xy
+  statistics: X0=-3.20312e-05; dX=0.280147; Y0=0.00338458; dY=0.375902;
+  signal: Min=0; Max=90.0414; Mean=0.0571215;
+  values: 57121.5 1471.49 1732
+  xvar: X 
+  yvar: Y 
+  xlabel: X divergence [deg]
+  ylabel: Y divergence [deg]
+  zvar: I
+  zlabel: Signal per bin
+  xylimits: -2 2 -2 2
+  variables: I I_err N
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:01 2018 (1539029461)
+  type: array_2d(1000, 1000)
+  Source: SNAP (SNAP_2018.instr)
+  component: divergenceMonitor_xL
+  position: 0 0 15
+  title: Wavelength-divergence monitor
+  Ncount: 1000000
+  filename: Divergence.xL
+  statistics: X0=1.68635; dX=0.914482; Y0=-3.20312e-05; dY=0.280147;
+  signal: Min=0; Max=89.078; Mean=0.0571215;
+  values: 57121.5 1471.49 1732
+  xvar: Wa
+  yvar: di
+  xlabel: Wavelength [AA]
+  ylabel: divergence [deg]
+  zvar: I
+  zlabel: Signal per bin
+  xylimits: 0 10 -2 2
+  variables: I I_err N
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:02 2018 (1539029462)
+  type: array_2d(1000, 1000)
+  Source: SNAP (SNAP_2018.instr)
+  component: Divergence_xpos
+  position: 0 0 15.0001
+  title: Position-divergence monitor
+  Ncount: 1000000
+  filename: Divergence.Xpos
+  statistics: X0=-1.67332e-05; dX=0.00234826; Y0=0.00243672; dY=0.267239;
+  signal: Min=0; Max=151.265; Mean=0.394471;
+  values: 394471 3870.59 12005
+  xvar: po
+  yvar: di
+  xlabel: pos [m]
+  ylabel: divergence [deg]
+  zvar: I
+  zlabel: Signal per bin
+  xylimits: -0.005 0.005 -2 2
+  variables: I I_err N
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:02 2018 (1539029462)
+  type: array_2d(1000, 1000)
+  Source: SNAP (SNAP_2018.instr)
+  component: divergenceMonitor_yL
+  position: 0 0 15.0001
+  title: Wavelength-divergence monitor
+  Ncount: 1000000
+  filename: Divergence.yL
+  statistics: X0=1.68673; dX=0.914414; Y0=0.00330119; dY=0.375941;
+  signal: Min=0; Max=89.141; Mean=0.0571015;
+  values: 57101.5 1471.35 1731
+  xvar: Wa
+  yvar: di
+  xlabel: Wavelength [AA]
+  ylabel: divergence [deg]
+  zvar: I
+  zlabel: Signal per bin
+  xylimits: 0 10 -2 2
+  variables: I I_err N
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:03 2018 (1539029463)
+  type: array_2d(1000, 1000)
+  Source: SNAP (SNAP_2018.instr)
+  component: Divergence_ypos
+  position: 0 0 15.0001
+  title: Position-divergence monitor
+  Ncount: 1000000
+  filename: Divergence.Ypos
+  statistics: X0=4.88356e-05; dX=0.00251218; Y0=0.0016939; dY=0.319687;
+  signal: Min=0; Max=132.734; Mean=0.431719;
+  values: 431719 4092.48 12437
+  xvar: po
+  yvar: di
+  xlabel: pos [m]
+  ylabel: divergence [deg]
+  zvar: I
+  zlabel: Signal per bin
+  xylimits: -0.005 0.005 -2 2
+  variables: I I_err N
+end data
+McStas simulation description file for SNAP.
+Date:    Mon Oct  8 16:11:14 2018
+Program: McStas 2.4.1 - Jun. 26, 2017
+
+begin instrument: SNAP
+  File: (null)/mccode
+  Source: SNAP_2018.instr
+  Parameters: 
+  Trace_enabled: yes
+  Default_main: yes
+  Embedded_runtime: yes
+end instrument
+
+begin simulation: (null)
+  Format: McCode with text headers
+  URL: http://www.mccode.org
+  Creator: McStas 2.4.1 - Jun. 26, 2017
+  Instrument: SNAP_2018.instr
+  Ncount: 1000000
+  Trace: no
+  Gravitation: no
+  Seed: 1539046039
+  Directory: .
+end simulation
+
+begin data
+  Date: Mon Oct  8 16:11:26 2018 (1539029486)
+  type: array_1d(1000)
+  Source: SNAP (SNAP_2018.instr)
+  component: sampleSpectrumL
+  position: 0 0 15
+  title: Wavelength monitor
+  Ncount: 1000000
+  filename: sampleSpectrum.L
+  statistics: X0=1.72086; dX=0.902397;
+  signal: Min=0; Max=476.138; Mean=60.6696;
+  values: 60669.6 1518.11 1819
+  xvar: L
+  yvar: (I,I_err)
+  xlabel: Wavelength [AA]
+  ylabel: Intensity
+  xlimits: 0 10
+  variables: L I I_err N
+end data
+
+begin data
+  Date: Mon Oct  8 16:11:26 2018 (1539029486)
+  type: array_1d(10000)
+  Source: SNAP (SNAP_2018.instr)
+  component: sampleSpectrumTOF
+  position: 0 0 15
+  title: Time-of-flight monitor
+  Ncount: 1000000
+  filename: sampleSpectrum.TOF
+  statistics: X0=6546.79; dX=3432.2;
+  signal: Min=0; Max=306.544; Mean=6.06696;
+  values: 60669.6 1518.11 1819
+  xvar: t
+  yvar: (I,I_err)
+  xlabel: Time-of-flight [\gms]
+  ylabel: Intensity
+  xlimits: 0 100000
+  variables: t I I_err N
+end data
